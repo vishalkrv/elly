@@ -6,72 +6,41 @@
  * # AnalyticsCtrl
  * Controller of the ellyApp
  */
-angular.module('ellyApp').controller('AnalyticsCtrl', function($scope) {
+angular.module('ellyApp').controller('AnalyticsCtrl',['$scope', '$http',  function($scope, $http) {
     
-	var data = [], totalPoints = 100;
-                function getRandomData() {
-
-                    if (data.length > 0)
-                        data = data.slice(1);
-
-                    // Do a random walk
-                    while (data.length < totalPoints) {
-
-                        var prev = data.length > 0 ? data[data.length - 1] : 50,
-                                y = prev + Math.random() * 10 - 5;
-
-                        if (y < 0) {
-                            y = 0;
-                        } else if (y > 100) {
-                            y = 100;
-                        }
-
-                        data.push(y);
-                    }
-
-                    // Zip the generated y values with the x values
-                    var res = [];
-                    for (var i = 0; i < data.length; ++i) {
-                        res.push([i, data[i]]);
-                    }
-
-                    return res;
-                }
-
-                var interactive_plot = $.plot("#interactive", [getRandomData()], {
-                    grid: {
-                        borderColor: "#f3f3f3",
-                        borderWidth: 1,
-                        tickColor: "#f3f3f3"
-                    },
-                    series: {
-                        shadowSize: 0, // Drawing is faster without shadows
-                        color: "#3c8dbc"
-                    },
-                    lines: {
-                        fill: true, //Converts the line chart to area chart
-                        color: "#3c8dbc"
-                    },
-                    yaxis: {
-                        min: 0,
-                        max: 100,
-                        show: true
-                    },
-                    xaxis: {
-                        show: true
-                    }
+                var area = new Morris.Area({
+                    element: 'revenue-chart',
+                    resize: true,
+                    data: [
+                        {y: '2011 Q1', item1: 2666, item2: 2666},
+                        {y: '2011 Q2', item1: 2778, item2: 2294},
+                        {y: '2011 Q3', item1: 4912, item2: 1969},
+                        {y: '2011 Q4', item1: 3767, item2: 3597},
+                        {y: '2012 Q1', item1: 6810, item2: 1914},
+                        {y: '2012 Q2', item1: 5670, item2: 4293},
+                        {y: '2012 Q3', item1: 4820, item2: 3795},
+                        {y: '2012 Q4', item1: 15073, item2: 5967},
+                        {y: '2013 Q1', item1: 10687, item2: 4460},
+                        {y: '2013 Q2', item1: 8432, item2: 5713}
+                    ],
+                    xkey: 'y',
+                    ykeys: ['item1', 'item2'],
+                    labels: ['Item 1', 'Item 2'],
+                    lineColors: ['#a0d0e0', '#3c8dbc'],
+                    hideHover: 'auto'
                 });
 
-                function update() {
-
-                    interactive_plot.setData([getRandomData()]);
-
-                    // Since the axes don't change, we don't need to call plot.setupGrid()
-                    interactive_plot.draw();
-                    setTimeout(update, 500);
-                }
-
-                update();
+                var donut = new Morris.Donut({
+                    element: 'sales-chart',
+                    resize: true,
+                    colors: ["#3c8dbc", "#f56954", "#00a65a"],
+                    data: [
+                        {label: "Download Sales", value: 12},
+                        {label: "In-Store Sales", value: 30},
+                        {label: "Mail-Order Sales", value: 20}
+                    ],
+                    hideHover: 'auto'
+                });
 
                 var bar = new Morris.Bar({
                     element: 'bar-chart',
@@ -132,4 +101,12 @@ angular.module('ellyApp').controller('AnalyticsCtrl', function($scope) {
 		        }
 		    });
 
-});
+            var sampleDataPath = 'sampledata/yelp_user_reviews.json';
+
+            /*$http.get(sampleDataPath).success(function(data){
+                console.log(data);
+            }).error(function(data){
+                console.log(data);
+            });
+*/
+}]);
