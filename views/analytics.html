@@ -123,9 +123,9 @@
 
     </div><!-- /.row -->
     <div class="row">
-        <div class="col-md-12" >
+        <div class="col-md-6 test{{$index}}" ng-repeat="items in anlyObj.returnObj" >
             <!-- BAR CHART -->
-            <div class="box box-success" ng-repeat="items in anlyObj.returnObj">
+            <div class="box box-success">
                 <div class="box-header">
 
                     <h3 class="box-title headTitle-{{$index}}"></h3>
@@ -133,18 +133,46 @@
                 <div class="box-body chart-responsive">
                     <div class="chart" id="bar-chart-{{$index}}" style="height: 300px;"></div>
                 </div><!-- /.box-body -->
-            </div><!-- /.box -->
+            </div><!-- /.box -->            
         </div>
         <div class="col-md-6" ng-show="anlyObj.demo">
-            <!-- GEO CHART -->
-            <div class="box box-success">
+            <div class="box box-solid bg-teal-gradient">
+                                <div class="box-header">
+                                    <i class="fa fa-th"></i>
+                                    <h3 class="box-title">Sales Graph</h3>                                   
+                                </div>
+                                <div class="box-body border-radius-none">
+                                    <div class="chart" id="line-chart" style="height: 250px;"></div>
+                                </div><!-- /.box-body -->
+                                <div class="box-footer no-border">
+                                    <div class="row">
+                                        <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
+                                            <input type="text" class="knob" data-readonly="true" value="20" data-width="60" data-height="60" data-fgColor="#39CCCC"/>
+                                            <div class="knob-label">Mail-Orders</div>
+                                        </div><!-- ./col -->
+                                        <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
+                                            <input type="text" class="knob" data-readonly="true" value="50" data-width="60" data-height="60" data-fgColor="#39CCCC"/>
+                                            <div class="knob-label">Online</div>
+                                        </div><!-- ./col -->
+                                        <div class="col-xs-4 text-center">
+                                            <input type="text" class="knob" data-readonly="true" value="30" data-width="60" data-height="60" data-fgColor="#39CCCC"/>
+                                            <div class="knob-label">In-Store</div>
+                                        </div><!-- ./col -->
+                                    </div><!-- /.row -->
+                                </div><!-- /.box-footer -->
+                            </div><!-- /.box -->
+
+        </div>
+        <div class="col-md-6 splMap">
+            <!-- Default box -->
+            <div class="box box-solid">
                 <div class="box-header">
-                    <h3 class="box-title">GEO Chart</h3>
+                    <h3 class="box-title splMapTitle">World Chart</h3>                    
                 </div>
                 <div class="box-body chart-responsive">
-                    
+                    <div id="world-maps" style="height: 300px;"></div>
                 </div><!-- /.box-body -->
             </div><!-- /.box -->
-        </div>
+        </div>        
     </div>
 </section>
