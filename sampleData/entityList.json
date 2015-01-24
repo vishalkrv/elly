@@ -1,0 +1,67 @@
+[
+    {
+        "entityId": "1",
+        "enttityName": "User Reviews",
+        "entityDescription": "Yelp Based user reviews of businesses around USA",
+        "recordCount": 403210,
+        "lastUpdated": "22-01-2015",
+        "IngestedDirectory": "/data/yelp/yelp_user_reviews",
+        "ScriptforAnalyze": "/root/yelpscripts/yelp_user_reviews.sh",
+        "AnalyzedDirectory": "/mapr/demo.mapr.com/data/yelp/yelp_user_reviews_analyzed",
+        "AnalyzedFiles": [
+            {
+                "yelp_user_reviews_businessid": true,
+                "yelp_user_reviews_date": true,
+                "yelp_user_reviews_likes": true,
+                "yelp_user_reviews_text": true,
+                "yelp_user_reviews_type": true,
+                "yelp_user_reviews_userid": true
+            }
+        ]
+    },
+    {
+        "entityId": "2",
+        "enttityName": "Yelp Users",
+        "entityDescription": "Users who are Yelping",
+        "recordCount": 252898,
+        "lastUpdated": "22-01-2015",
+        "IngestedDirectory": "/data/yelp/yelp_user",
+        "ScriptforAnalyze": "/root/yelpscripts/yelp_user.sh",
+        "AnalyzedDirectory": "/mapr/demo.mapr.com/data/yelp/yelp_user_analyzed",
+        "AnalyzedFiles": [
+            {
+                "yelp_user_reviewcount": true,
+                "yelp_user_userid": true,
+                "yelp_user_yelpingsince": true
+            }
+        ]
+    },
+    {
+        "entityId": "3",
+        "enttityName": "Yelp Business",
+        "entityDescription": "Businesses who are in Yelp system",
+        "recordCount": 252898,
+        "lastUpdated": "22-01-2015",
+        "IngestedDirectory": "/data/yelp/yelp_business",
+        "ScriptforAnalyze": "/root/yelpscripts/yelp_business.sh",
+        "AnalyzedDirectory": "/mapr/demo.mapr.com/data/yelp/yelp_business_analyzed",
+        "AnalyzedFiles": [
+            {
+                "yelp_business_categorycount": true,
+                "yelp_business_city": true,
+                "yelp_business_reviewcount": true,
+                "yelp_business_state": true
+            }
+        ]
+    },
+    {
+        "entityId": "4",
+        "enttityName": "Yelp Check-In",
+        "entityDescription": "User Check-in Logs",
+        "recordCount": 252898,
+        "lastUpdated": "22-01-2015",
+        "IngestedDirectory": "/data/yelp/yelp_business",
+        "ScriptforAnalyze": "/root/yelpscripts/yelp_business.sh",
+        "AnalyzedDirectory": "/mapr/demo.mapr.com/data/yelp/yelp_business_analyzed"
+    }
+]

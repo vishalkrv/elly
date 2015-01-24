@@ -1,0 +1,31 @@
+[{
+  "city" : "Las Vegas",
+  "totalreviews" : 12022
+}, {
+  "city" : "Phoenix",
+  "totalreviews" : 7499
+}, {
+  "city" : "Scottsdale",
+  "totalreviews" : 3605
+}, {
+  "city" : "Edinburgh",
+  "totalreviews" : 2887
+}, {
+  "city" : "Mesa",
+  "totalreviews" : 2041
+}, {
+  "city" : "Tempe",
+  "totalreviews" : 2025
+}, {
+  "city" : "Henderson",
+  "totalreviews" : 1914
+}, {
+  "city" : "Chandler",
+  "totalreviews" : 1637
+}, {
+  "city" : "Madison",
+  "totalreviews" : 1630
+}, {
+  "city" : "Glendale",
+  "totalreviews" : 1196
+}]

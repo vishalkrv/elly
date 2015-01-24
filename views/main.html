@@ -1,4 +1,4 @@
-<section class="content-header">
+'<section class="content-header">
     <h1>
     Entity
     <small>preview of entity list</small>
@@ -10,55 +10,25 @@
 </section>
 <section class="content">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4" ng-repeat="item in main.list">
             <!-- Default box -->
-            <div class="box box-solid box-primary" ng-click="main.redirect()" style="cursor:pointer">
+            <div class="box box-solid box-primary" ng-click="main.redirect(item.entityId)" style="cursor:pointer">
                 <div class="box-header">
-                    <h3 class="box-title">Shopping Logs</h3>
+                    <h3 class="box-title">{{item.enttityName}}</h3>
                 </div>
                 <div class="box-body">
                     <p>
-                    Log Information Goes Here
+                    {{item.entityDescription}}
                     </p>
-                    <p class="text-yellow">200000 Records</p>
+                   <p class="text-yellow">{{item.recordCount}} Records</p>
+                    <h6>Ingested Dir:</h6><p class="text-green" style="display: inline-block;
+margin: 6px 0px 0px 14px;"> {{item.IngestedDirectory}}</p>                    
                     </div><!-- /.box-body -->
                     <div class="box-footer">
-                        Last Updated : <code>23/1/2015</code>
+                        Last Updated : <code>{{item.lastUpdated}}</code>
                     </div>
                     </div><!-- /.box -->
                 </div>
-                <div class="col-md-4">
-                    <!-- Default box -->
-                    <div class="box box-solid box-primary" ng-click="main.redirect()" style="cursor:pointer">
-                        <div class="box-header">
-                            <h3 class="box-title">Web Logs</h3>
-                        </div>
-                        <div class="box-body">
-                            <p>
-                            Log Information Goes Here
-                            <p class="text-yellow">200000 Records</p>
-                            </p>
-                            </div><!-- /.box-body -->
-                            <div class="box-footer">
-                                Last Updated : <code>23/1/2015</code>
-                            </div>
-                            </div><!-- /.box -->
-                        </div>
-                        <div class="col-md-4">
-                            <!-- Default box -->
-                            <div class="box box-solid box-primary" ng-click="main.redirect()" style="cursor:pointer">
-                                <div class="box-header">
-                                    <h3 class="box-title">Movie Logs</h3>
-                                </div>
-                                <div class="box-body">
-                                    <p>
-                                    Log Information Goes Here
-                                    <p class="text-yellow">200000 Records</p>
-                                    </p>
-                                    </div><!-- /.box-body -->
-                                    <div class="box-footer">
-                                        Last Updated : <code>23/1/2015</code>
-                                    </div>
-                                    </div><!-- /.box -->
-                                </div>                                
-                                </section>
+               
+        </div>                                
+</section>

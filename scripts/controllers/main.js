@@ -8,12 +8,20 @@
  * Controller of the ellyApp
  */
 angular.module('ellyApp')
-  .controller('MainCtrl',[ '$scope', '$location', function (scope, $location) {
+  .controller('MainCtrl',[ '$scope', '$location','$http', function (scope, $location, $http) {
     
   	scope.main = {
-  		redirect:function(){
-  			$location.url('/analytics');
+  		list:[],
+  		redirect:function(entityId){
+  			$location.url('/analytics?entityId='+entityId);
   		}
   	};
+
+  	$http.get('sampleData/entityList.json')
+  	.success(function(response){
+  		scope.main.list = response;
+  	}).error(function(response){
+  		console.error(response);
+  	});
 
   }]);
